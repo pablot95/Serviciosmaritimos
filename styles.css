@@ -919,7 +919,7 @@ footer {
 
     .nav-links {
         position: fixed;
-        left: -100%;
+        left: -110%;
         top: 90px;
         flex-direction: column;
         background: var(--white);
@@ -977,7 +977,18 @@ footer {
     }
 
     .services-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .service-card {
+        height: 200px;
+    }
+
+    .service-card h4 {
+        font-size: 0.75rem;
+        padding: 8px;
+        line-height: 1.2;
     }
 
     .contact-preview {
@@ -999,12 +1010,26 @@ footer {
     }
 
     .parallax-cards {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
     }
 
     .parallax-card {
-        height: 300px;
+        height: 250px;
+    }
+
+    .parallax-card-content h3 {
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+
+    .parallax-card-content p {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+    }
+
+    .parallax-card-content {
+        padding: 20px;
     }
 
     .services-parallax-content {
@@ -1022,6 +1047,7 @@ footer {
 
     .parallax-bg {
         background-attachment: scroll;
+        background-image: url('images/fondocelu.jpg') !important;
     }
 }
 
