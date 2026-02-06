@@ -196,16 +196,17 @@ header.transparent .hamburger span {
 }
 
 .hero-logo-main {
-    width: 350px;
+    width: 450px;
     height: auto;
     margin-bottom: 30px;
-    margin-left: 100px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     opacity: 0;
-    transform: translate(200px);
+    transform: translateY(30px);
     animation: slideUp 0.8s ease-out forwards;
     animation-delay: 0.5s;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-content h1 {
