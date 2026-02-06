@@ -67,9 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(card);
     });
 
-    // Contact Form Handling
+    // Contact Form Handling with EmailJS
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
+        // Initialize EmailJS
+        emailjs.init("nQMhHcewPMYzsFULE");
+
         contactForm.addEventListener('submit', function(event) {
             event.preventDefault();
             
@@ -78,25 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.innerText = 'Enviando...';
             submitBtn.disabled = true;
 
-            // Get form data
-            const formData = new FormData(contactForm);
-            const nombre = formData.get('nombre');
-            const email = formData.get('email');
-            const telefono = formData.get('telefono');
-            const mensaje = formData.get('mensaje');
-
-            // Simulate sending (replace with actual email service like EmailJS)
-            setTimeout(() => {
-                alert(`¡Gracias ${nombre}! Su mensaje ha sido enviado correctamente. Nos pondremos en contacto con usted pronto.`);
-                contactForm.reset();
-                submitBtn.innerText = originalBtnText;
-                submitBtn.disabled = false;
-            }, 1000);
-
-            // If you want to use EmailJS, uncomment below and add your credentials
-            /*
-            emailjs.init("YOUR_PUBLIC_KEY");
-            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+            // Send form with EmailJS
+            emailjs.sendForm('service_bbc8zty', 'template_cc5ky83', this)
                 .then(function() {
                     alert('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.');
                     contactForm.reset();
@@ -104,11 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     submitBtn.disabled = false;
                 }, function(error) {
                     alert('Hubo un error al enviar el mensaje. Por favor intenta nuevamente o contáctanos por WhatsApp.');
-                    console.error('FAILED...', error);
+                    console.error('Error al enviar:', error);
                     submitBtn.innerText = originalBtnText;
                     submitBtn.disabled = false;
                 });
-            */
         });
     }
 
