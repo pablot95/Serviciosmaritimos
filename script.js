@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
     const heroSection = document.querySelector('.hero');
 
-    // Hamburger Menu Logic
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
 
@@ -12,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.classList.toggle('active');
         });
 
-        // Close menu when clicking on a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
@@ -21,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Header scroll behavior
     if (heroSection) {
         window.addEventListener('scroll', () => {
             const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
@@ -34,19 +31,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Initial check
         if (window.scrollY > 0) {
             header.classList.add('transparent');
         } else {
             header.classList.add('transparent');
         }
     } else {
-        // No hero section, ensure header is solid (scrolled style)
         header.classList.add('scrolled');
         header.classList.remove('transparent');
     }
 
-    // Service Cards Animation
     const serviceCards = document.querySelectorAll('.service-card');
     
     const observerOptions = {
@@ -67,10 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(card);
     });
 
-    // Contact Form Handling with EmailJS
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-        // Initialize EmailJS
         emailjs.init("nQMhHcewPMYzsFULE");
 
         contactForm.addEventListener('submit', function(event) {
@@ -81,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.innerText = 'Enviando...';
             submitBtn.disabled = true;
 
-            // Send form with EmailJS
             emailjs.sendForm('service_bbc8zty', 'template_cc5ky83', this)
                 .then(function() {
                     alert('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.');
@@ -97,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
@@ -115,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Parallax effect for hero
     const hero = document.querySelector('.hero');
     if (hero) {
         window.addEventListener('scroll', () => {
@@ -126,7 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Service items animation on scroll
     const serviceItems = document.querySelectorAll('.service-item');
     if (serviceItems.length > 0) {
         const itemObserver = new IntersectionObserver((entries) => {
@@ -146,11 +134,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Console message
     console.log('%c Galeon Consultora Marítima ', 'background: #003f7f; color: white; font-size: 20px; padding: 10px;');
     console.log('%c Sitio web profesional de servicios marítimos ', 'color: #4da6d4; font-size: 14px;');
 
-    // Parallax cards 3D effect
     const parallaxCards = document.querySelectorAll('.parallax-card');
     parallaxCards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
@@ -172,7 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Parallax background scroll effect
     window.addEventListener('scroll', () => {
         const parallaxBg = document.querySelector('.parallax-bg');
         if (parallaxBg) {
